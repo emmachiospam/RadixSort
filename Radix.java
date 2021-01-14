@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class Radix{
 
@@ -19,9 +20,9 @@ public class Radix{
     return length;
   }
 
-  public static void merge(MyLinkedList original,MyLinkedList[] buckets) {
+  public static void merge(SortableLinkedList original, SortableLinkedList[] buckets) {
     for(int i = 0; i < buckets.length; i++) {
-      original.merge(buckets[i]);
+      original.extend(buckets[i]);
     }
   }
 
