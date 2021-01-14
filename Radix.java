@@ -26,7 +26,7 @@ public class Radix{
     }
   }
 
-  public static String radixSortSimple(SortableLinkedList data) {
+  public static void radixSortSimple(SortableLinkedList data) {
     int maxlength = 1;
     SortableLinkedList[] buckets = new SortableLinkedList[10];
     for (int i = 0; i < 10; i++) {
@@ -43,14 +43,31 @@ public class Radix{
       data = new SortableLinkedList();
       merge(data, buckets);
     }
-    return data.toString();
   }
 
-  public static void main(String[] args) {
-    SortableLinkedList test = new SortableLinkedList();
-    test.add(600); test.add(13); test.add(4); test.add(201); test.add(11);
-    System.out.println(radixSortSimple(test));
-    // System.out.println(nth(4321, 0));
+  public static void radixSort(SortableLinkedList data) {
+    int maxlength = 1;
+    SortableLinkedList[] buckets = new SortableLinkedList[20];
+    for (int i = 0; i < 20; i++) {
+      buckets[i] = new SortableLinkedList();
+    }
+    for(int i = 0; i < maxlength; i++) {
+      for(int j = 0; j < data.size(); j++) {
+        if(length(data.get(j)) > maxlength) {
+          maxlength = length(data.get(j));
+        }
+        if(data.get(j) < 0) {
+          int value = (nth(data.get(j), i));
+          buckets[9 - value].add(data.get(j));
+        }
+        else{
+          int value2 = nth(data.get(j), i) + 10;
+          buckets[value2].add(data.get(j));
+        }
+      }
+      data = new SortableLinkedList();
+      merge(data, buckets);
+    }
   }
 
 }
