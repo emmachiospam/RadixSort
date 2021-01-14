@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Radix{
 
   public static int nth(int n, int col) {
@@ -16,6 +17,12 @@ public class Radix{
       length = (int)Math.log10(n) + 1;
     }
     return length;
+  }
+
+  public static void merge(MyLinkedList original,MyLinkedList[] buckets) {
+    for(int i = 0; i < buckets.length; i++) {
+      original.merge(buckets[i]);
+    }
   }
 
   public static void main(String[] args) {
