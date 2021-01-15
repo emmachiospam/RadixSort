@@ -79,9 +79,4 @@ public class Radix{
     }
   }
 
-  // public static void main(String[] args) {
-  //   SortableLinkedList test = new SortableLinkedList();
-  //   test.add(2); test.add(-300); test.add(112);  test.add(100);
-  //   System.out.println((radixSort(test)));
-  // }
 }
